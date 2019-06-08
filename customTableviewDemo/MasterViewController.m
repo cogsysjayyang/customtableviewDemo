@@ -14,7 +14,7 @@
 @property NSMutableArray *objects;
 @property NSMutableArray *objectsections;
 @end
-NSInteger clickedSection=1;
+NSInteger clickedSection=0;
 @implementation MasterViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,7 +37,7 @@ NSInteger clickedSection=1;
     if (!self.objectsections) {
         self.objectsections=[[NSMutableArray alloc]init];
         
-        [self.objectsections insertObject:[NSString stringWithFormat:@"%d",1] atIndex:0];
+        [self.objectsections insertObject:[NSString stringWithFormat:@"%d",NO] atIndex:0];
     }
     
     if (!self.objects) {
@@ -52,7 +52,7 @@ NSInteger clickedSection=1;
     if ([[_objects firstObject] count]<_objectsections.count) {
         [[_objects firstObject] insertObject:[NSDate date] atIndex:0];
     }else{
-        [self.objectsections insertObject:[NSString stringWithFormat:@"%lu",_objectsections.count+1] atIndex:0];
+        [self.objectsections insertObject:[NSString stringWithFormat:@"%d",NO] atIndex:0];
         
         NSMutableArray* newSection=[[NSMutableArray alloc]init];
         [newSection insertObject:[NSDate date] atIndex:0];
@@ -64,6 +64,9 @@ NSInteger clickedSection=1;
     //[self.objects insertObject:[NSDate date] atIndex:0];
     /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];*/
+    //close=YES;
+    clickedSection=0;
+    _objectsections[clickedSection]=[NSString stringWithFormat:@"%d",YES];
     [self.tableView reloadData];
     close=YES;
 }
@@ -98,7 +101,7 @@ NSInteger clickedSection=1;
             return [self.objects[section] count];
         }*/
     
-    if (section==clickedSection&&close) {
+    if (section==clickedSection&&_objectsections[section]==[NSString stringWithFormat:@"%d",YES]) {
         return [self.objects[section] count];}
     return 0;
 
@@ -111,7 +114,7 @@ NSInteger clickedSection=1;
     return [self addUIControl_section:section];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    return 70;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
@@ -149,14 +152,34 @@ NSInteger clickedSection=1;
 }
 
 - (UIControl *) addUIControl_section:(NSInteger)section{
-    UIControl *view = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];;
+    UIControl *view = [[UIControl alloc] initWithFrame:CGRectMake(10, 0, 0, 0)];
     
-    [view setBackgroundColor:[UIColor greenColor]];
+    [view setBackgroundColor:[UIColor colorWithRed:0.149 green:0.152 blue:0.216 alpha:1]];
     view.layer.cornerRadius = 10;
     view.layer.shadowColor=[UIColor grayColor].CGColor;
     view.layer.shadowOffset=CGSizeMake(0, 0);
     view.layer.shadowOpacity=1;
     view.layer.shadowRadius=3;
+    
+    
+    UIView *sectionView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 12, 45, 45)];
+    [sectionView setBackgroundColor:[UIColor colorWithRed:(CGFloat)1-(section%4)/3 green:(CGFloat)(section%3)/2 blue:(CGFloat)(section%6)/5 alpha:1]];
+    
+    sectionView.layer.cornerRadius = 16;
+    sectionView.layer.shadowColor=[UIColor whiteColor].CGColor;
+    sectionView.layer.shadowOffset=CGSizeMake(0, 0);
+    sectionView.layer.shadowOpacity=1;
+    sectionView.layer.shadowRadius=3;
+    
+    
+    
+    UILabel *sectionLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 15, 40, 40)];
+    sectionLabel.textColor=[UIColor colorWithWhite:0.7 alpha:1];
+    sectionLabel.text= [NSString stringWithFormat:@"%lu",section];
+    [sectionView addSubview:sectionLabel];
+    
+    [view addSubview:sectionView];
+    
     
     view.tag = 1000 + section;
     [view addTarget:self action:@selector(sectionClick:) forControlEvents:UIControlEventTouchDown];
@@ -164,15 +187,23 @@ NSInteger clickedSection=1;
 }
 -(void)sectionClick:(UIControl *)view{
     close=!close;
-    BOOL ck=close;
+    NSInteger ck=clickedSection;
     clickedSection=view.tag-1000;
-    close=NO;
-    [self.tableView reloadData];
-    close=ck;
-    if (ck) {
-
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //close=NO;
+    //[self.tableView reloadData];
+    //close=ck;
+    if (ck!=clickedSection) {
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
+        _objectsections[clickedSection]=[NSString stringWithFormat:@"%d",YES];
+        close=YES;
+        [self.tableView reloadData];
+        //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }else{
+        _objectsections[clickedSection]=[NSString stringWithFormat:@"%d",close];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-
+    //[self.tableView reloadData];
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //[self.tableView reloadData];
 }
 @end
