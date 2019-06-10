@@ -137,13 +137,23 @@
     sectionView.layer.shadowRadius=3;
     
     
+    UILabel *fullTitle = [[UILabel alloc]initWithFrame:CGRectMake(15,4, 145, 45)];
+    fullTitle.font=[UIFont fontWithName:@"TrebuchetMS-Bold" size:24];
+    fullTitle.textColor=[UIColor colorWithRed:(CGFloat)1-(section%4)/3 green:(CGFloat)(section%3)/2 blue:(CGFloat)(section%6)/5 alpha:1];
+    fullTitle.text=@"Full Title";
+    [view addSubview:fullTitle];
+    
+    
+    UILabel *subTitle = [[UILabel alloc]initWithFrame:CGRectMake(15,30, 145, 45)];
+    subTitle.font=[UIFont fontWithName:@"TrebuchetMS" size:18];
+    subTitle.textColor=[UIColor grayColor];
+    subTitle.text=@"Sub Title";
+    [view addSubview:subTitle];
+    
     
     UILabel *sectionLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 45, 45)];
     sectionLabel.textAlignment=NSTextAlignmentCenter;
-    
     sectionLabel.font=[UIFont fontWithName:@"TrebuchetMS" size:22];
-    
-    
     sectionLabel.textColor=[UIColor colorWithWhite:0 alpha:1];
     sectionLabel.text= [NSString stringWithFormat:@"%lu",[self.objects[section] count]];
     [sectionView addSubview:sectionLabel];
