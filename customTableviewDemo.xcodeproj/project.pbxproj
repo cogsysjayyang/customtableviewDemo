@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69BDEBDA22ADFDC2007308A9 /* customHeaderViewo+TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BDEBD922ADFDC2007308A9 /* customHeaderViewo+TableViewController.m */; };
 		EF9372C82216565500C06DB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9372C72216565500C06DB4 /* AppDelegate.m */; };
 		EF9372CB2216565500C06DB4 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9372CA2216565500C06DB4 /* MasterViewController.m */; };
 		EF9372CE2216565500C06DB4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9372CD2216565500C06DB4 /* DetailViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69BDEBD822ADFDC2007308A9 /* customHeaderViewo+TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "customHeaderViewo+TableViewController.h"; sourceTree = "<group>"; };
+		69BDEBD922ADFDC2007308A9 /* customHeaderViewo+TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "customHeaderViewo+TableViewController.m"; sourceTree = "<group>"; };
 		EF9372C32216565500C06DB4 /* customTableviewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = customTableviewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9372C62216565500C06DB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF9372C72216565500C06DB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,6 +66,8 @@
 			children = (
 				EF9372C62216565500C06DB4 /* AppDelegate.h */,
 				EF9372C72216565500C06DB4 /* AppDelegate.m */,
+				69BDEBD822ADFDC2007308A9 /* customHeaderViewo+TableViewController.h */,
+				69BDEBD922ADFDC2007308A9 /* customHeaderViewo+TableViewController.m */,
 				EF9372C92216565500C06DB4 /* MasterViewController.h */,
 				EF9372CA2216565500C06DB4 /* MasterViewController.m */,
 				EF9372CC2216565500C06DB4 /* DetailViewController.h */,
@@ -148,6 +153,7 @@
 			files = (
 				EF9372CB2216565500C06DB4 /* MasterViewController.m in Sources */,
 				EF9372C82216565500C06DB4 /* AppDelegate.m in Sources */,
+				69BDEBDA22ADFDC2007308A9 /* customHeaderViewo+TableViewController.m in Sources */,
 				EF9372D92216565A00C06DB4 /* main.m in Sources */,
 				EF9372CE2216565500C06DB4 /* DetailViewController.m in Sources */,
 			);

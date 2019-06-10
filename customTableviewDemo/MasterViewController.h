@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "customHeaderViewo+TableViewController.h"
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : customHeaderViewo_TableViewController
 {
-    BOOL close;
+    //BOOL close;
 }
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
