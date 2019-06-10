@@ -69,6 +69,9 @@
     self.objectsections[clickedSection]=[NSString stringWithFormat:@"%d",YES];
     [self.tableView reloadData];
     close=YES;
+    
+    [fullTitleS insertObject:@"Full Title" atIndex:0];
+    [subTitleS insertObject:@"Subtitle" atIndex:0];
 }
 
 
@@ -87,22 +90,6 @@
 
 
 #pragma mark - Table View
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [self.objectsections[section] description];
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 70;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    view.backgroundColor = [UIColor clearColor];
-    return view;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10;
-}
-*/
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];

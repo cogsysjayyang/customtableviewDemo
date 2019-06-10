@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableArray *objects;
     NSMutableArray *objectsections;
     NSInteger clickedSection;
+    NSMutableArray *fullTitleS;
+    NSMutableArray *subTitleS;
 }
 @property BOOL close;
 @property NSMutableArray *objects;

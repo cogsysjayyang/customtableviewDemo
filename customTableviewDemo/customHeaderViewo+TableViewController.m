@@ -24,7 +24,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    if (!fullTitleS) {
+        fullTitleS =[[NSMutableArray alloc]init];
+    }
+    if (!subTitleS) {
+        subTitleS =[[NSMutableArray alloc]init];
+    }
 }
 
 #pragma mark - Table view data source
@@ -140,14 +145,14 @@
     UILabel *fullTitle = [[UILabel alloc]initWithFrame:CGRectMake(15,4, 145, 45)];
     fullTitle.font=[UIFont fontWithName:@"TrebuchetMS-Bold" size:24];
     fullTitle.textColor=[UIColor colorWithRed:(CGFloat)1-(section%4)/3 green:(CGFloat)(section%3)/2 blue:(CGFloat)(section%6)/5 alpha:1];
-    fullTitle.text=@"Full Title";
+    fullTitle.text=fullTitleS[section];
     [view addSubview:fullTitle];
     
     
     UILabel *subTitle = [[UILabel alloc]initWithFrame:CGRectMake(15,30, 145, 45)];
     subTitle.font=[UIFont fontWithName:@"TrebuchetMS" size:18];
     subTitle.textColor=[UIColor grayColor];
-    subTitle.text=@"Sub Title";
+    subTitle.text=subTitleS[section];
     [view addSubview:subTitle];
     
     
@@ -177,7 +182,7 @@
         objectsections[clickedSection]=[NSString stringWithFormat:@"%d",YES];
         close=YES;
         [self.tableView reloadData];
-        //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
     }else{
         objectsections[clickedSection]=[NSString stringWithFormat:@"%d",close];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:clickedSection] withRowAnimation:UITableViewRowAnimationAutomatic];
