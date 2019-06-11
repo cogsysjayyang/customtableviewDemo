@@ -6,12 +6,12 @@
 //  Copyright © 2019 杨 晓克. All rights reserved.
 //
 
-#import "customHeaderViewo+TableViewController.h"
+#import "customHeaderViewOnTableViewController.h"
 
-@interface customHeaderViewo_TableViewController ()
+@interface customHeaderViewOnTableViewController ()
 @end
 
-@implementation customHeaderViewo_TableViewController
+@implementation customHeaderViewOnTableViewController
 @synthesize objects;
 @synthesize objectsections;
 @synthesize clickedSection;

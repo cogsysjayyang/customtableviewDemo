@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface customHeaderViewo_TableViewController : UITableViewController
+@interface customHeaderViewOnTableViewController : UITableViewController
 {
     BOOL close;
     NSMutableArray *objects;

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "customHeaderViewo+TableViewController.h"
+#import "customHeaderViewOnTableViewController.h"
 @class DetailViewController;
 
-@interface MasterViewController : customHeaderViewo_TableViewController
+@interface MasterViewController : customHeaderViewOnTableViewController
 {
     //BOOL close;
 }
