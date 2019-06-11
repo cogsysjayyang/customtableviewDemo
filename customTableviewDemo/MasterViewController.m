@@ -96,6 +96,17 @@
 
     NSDate *object = self.objects[indexPath.section][indexPath.row];
     cell.textLabel.text = [object description];
+    
+    cell.layer.cornerRadius = 10;
+    cell.layer.shadowColor=[UIColor grayColor].CGColor;
+    cell.layer.shadowOffset=CGSizeMake(0, 0);
+    cell.layer.shadowOpacity=0.4;
+    cell.layer.shadowRadius=3;
+    //cell.layer.shouldRasterize=YES;
+    //tableView.backgroundColor=[UIColor colorWithWhite:0.3 alpha:0.9];
+    tableView.backgroundColor=[UIColor colorWithWhite:0 alpha:0.9];
+    tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
     return cell;
 }
 
